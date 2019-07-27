@@ -9,12 +9,12 @@ catergories: Home
    
    <h2>Blog posts</h2>
    <ul class="posts">
-      {% if site.catergories.computers | size <= 10 %}
+      {% if {{ site.catergories.computers | size }} <= 10 %}
          {% for post in site.catergories.computers %}
             <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
          {% endfor %}
       {% endif %}
-      {% if site.catergories.computers | size > 10 %}
+      {% if {{ site.catergories.computers | size }} > 10 %}
          {% assign post_count = 0 %}
          {% for post in site.catergories.computers %}
             <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
