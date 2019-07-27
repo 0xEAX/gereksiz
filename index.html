@@ -9,26 +9,14 @@ catergories: Home
    
    <h2>Blog posts</h2>
    <ul class="posts">
-      {% assign posts = site.catergories[computers] %}
-      {% for post in posts %}
-         {% assign size = forloop.length %}
-      {% endfor %}
+      {% assign iter = 0 %}
       
-      {% if size <= 10 %}
-         {% for post in site.catergories.computers.posts %}
-            <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-         {% endfor %}
-      {% endif %}
-   
-      {% if size > 10 %}
-         {% assign post_count = 0 %}
-         {% for post in site.catergories.computers.posts %}
-            <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-            {% assign post_count = post_count + 1 %}
-            {% if post_count == 10 %}
-               {% break %}
-            {% endif %}
-         {% endfor %}
-      {% endif %}
+      {% for post in site.catergories.computers %}
+         <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+         {% assign iter = iter + 1 %}
+         {% if iter == 10 %}
+            {% break %}
+         {% endif %}
+      {% endfor %}
    </ul>
 </div>
