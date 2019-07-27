@@ -11,7 +11,7 @@ catergories: Home
    <ul class="posts">
       {% assign iter = 0 %}
       
-      {% for post in site.catergories.computers %}
+      {% for post in site.categories.computers %}
          <li><span>&gt; {{ post.date | date_to_string }}</span> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
          {% assign iter = iter + 1 %}
          {% if iter == 10 %}
